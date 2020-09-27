@@ -1,0 +1,77 @@
+@import "../node_modules/bootstrap-css-only/css/bootstrap.min.css";
+@import "./assets/reset.css";
+
+body {
+  background-color: #fafafa;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.flex-center,
+.flex-apart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-apart {
+  justify-content: space-between;
+}
+
+h4 {
+  border-bottom: 1px dashed #cacaca;
+}
+
+.required::after {
+  content: " * ";
+  color: #dc3545;
+}
+
+.btn {
+  box-shadow: -3px 7px #cacaca !important;
+  outline: none !important;
+
+  &:active,
+  &:active:focus {
+    outline: none !important;
+    box-shadow: -1px 5px #adadad !important;
+    transform: translateY(4px);
+  }
+
+  &:focus {
+    box-shadow: -3px 7px #adadad !important;
+    outline: none !important;
+  }
+}
+
+.app-body.card,
+.login-box.card {
+  box-shadow: 10px 10px 20px -20px #5d6975;
+}
+
+.table .thead-dark th {
+  background-color: #5d6975;
+}
+
+th {
+  font-weight: normal;
+}
+
+.form-control:focus {
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.05);
+  outline: rgba(0, 0, 0, 0.1);
+}
+
+.fw500{
+  font-weight: 500;
+}
+
+.relative{
+  position: relative;
+}

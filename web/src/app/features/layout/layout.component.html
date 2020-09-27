@@ -1,0 +1,22 @@
+<div class="app-body container card p-5 m-5 mx-auto">
+    <button class="d-print-none btn btn-danger logout-btn" (click)="logOut()">LOGOUT</button>
+    <div class="row">
+        <div class="col-12 d-print-none tool-box-holder mb-5 p-0">
+            <div class="tool-box">
+                <div class="tool-icon" (click)="loadRoute('mydetails')">
+                    <div class="tool-circle-first {{tabbed=='mydetails'?'active':''}}"><span></span></div>
+                    <div>My Details</div>
+                </div>
+                <div class="tool-icon" (click)="loadRoute('entity')">
+                    <div class="tool-circle {{tabbed=='entity'?'active':''}}"><span></span></div>
+                    <div>Client Details</div>
+                </div>
+                <div class="tool-icon" (click)="loadRoute('details')">
+                    <div class="tool-circle {{tabbed=='details'?'active':''}}"><span></span></div>
+                    <div>Create Invoice</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>

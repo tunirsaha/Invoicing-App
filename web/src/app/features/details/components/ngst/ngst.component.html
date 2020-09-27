@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-12">
+    <table class="table table-striped table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" class="col-3"><span>Name</span></th>
+          <th scope="col" class="col-1"><span>Quantity</span></th>
+          <th scope="col" class="col-1"><span>Rate</span></th>
+          <th scope="col" class="col-1" *ngIf="isDiscounted()"><span>Discount</span></th>
+          <th scope="col" class="col-1"><span>Total</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of itemForm; let in = index">
+          <th>{{in+1}}. {{i.name}}</th>
+          <th>{{i.quantity | number : 1-1}}</th>
+          <th>{{i.rate | number : 1-1}}</th>
+          <th *ngIf="isDiscounted()">{{i.discount | number : 1-1}}</th>
+          <th class="flex-apart relative">{{i.total | number : 1-1}}<button class="btn btn-danger cross-btn" (click)="deleteItem(in)">x</button></th>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th><input type="text" class="form-control fcs" [(ngModel)]="name">     </th>
+          <th><input type="text" class="form-control fcs" (ngModelChange)="quantityUpdate($event)" [(ngModel)]="quantity"> </th>
+          <th><input type="text" class="form-control fcs" (ngModelChange)="rateUpdate($event)" [(ngModel)]="rate">     </th>
+          <th *ngIf="isDiscounted()"><input type="text" class="form-control fcs" [(ngModel)]="discount" disabled>     </th>
+          <th><input type="text" class="form-control fcs" [(ngModel)]="total" disabled>   </th>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="row">
+      <div class="col-12 flex-apart">
+        <button class="btn btn-primary" (click)="add()">Add Row</button>
+        <button class="btn btn-primary" *ngIf="!isDiscounted()" (click)="addDiscount()">Add Discount</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6"></div>
+      <div class="col-6">
+        <div class="row" *ngIf="isDiscounted()">
+          <div class="col-6">
+            <label for="disc">Discount</label>
+          </div>
+          <div class="col-6">
+            <input type="text" id="disc" (ngModelChange)="discountUpdate($event)" [(ngModel)]="discount">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6"></div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-6">
+            <div>Total</div>
+          </div>
+          <div class="col-6">
+            {{tTotal}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6"></div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-12">
+            Total in Words: {{WordAmnt}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

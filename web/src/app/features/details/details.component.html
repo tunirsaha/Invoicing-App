@@ -1,0 +1,116 @@
+<div class="row">
+  <div class="col-12 text-center">
+    <h4>Create Invoice</h4>
+    <div class="flex-center mt-3 mb-3">
+      <input class="form-control" type="checkbox" id="nogst" [(ngModel)]="gstSelected">
+      <label for="nogst">GST Not Applicable</label>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-4">
+    <div class="row mb-2 flex-center">
+      <label class="col-6 text-right" for="inv_no">Invoice No</label>
+      <input type="text" class="form-control col-6" id="inv_no">
+    </div>
+    <div class="row mb-2 flex-center">
+      <label class="col-6 text-right" for="inv_date">Invoice Date</label>
+      <input type="text" class="form-control col-6" id="inv_date" [(ngModel)]="invoiceDate" theme="dp-material" [dpDayPicker]="config">
+      <!-- <input name="someName" /> -->
+    </div>
+    <div class="row mb-2 flex-center">
+      <label class="col-6 text-right" for="due_date">Due Date</label>
+      <input type="text" class="form-control col-6" id="due_date" [(ngModel)]="dueDate" theme="dp-material" [dpDayPicker]="config">
+    </div>
+  </div>
+  <div class="col-2"></div>
+  <div class="col-4">
+    <div class="row mb-2 flex-center">
+      <label class="col-6 text-right" for="po_num">Purchase Order #</label>
+      <input type="text" class="form-control col-6" id="po_num">
+    </div>
+    <div class="row mb-2 flex-center">
+      <label class="col-6 text-right" for="qo_num">Quotation #</label>
+      <input type="text" class="form-control col-6" id="qo_num">
+    </div>
+    <div class="row mb-2 flex-center">
+      <label class="col-6 text-right" for="bilto">Billed To</label>
+      <select id="client" class="form-control col-6" (ngModelChange)="clientChange($event)"
+        [(ngModel)]="selectedClient">
+        <option *ngFor="let c of clientList; let i = index" [ngValue]="c.cid">{{c.bname}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-2"></div>
+</div>
+<div class="row mt-3 mb-3 text-center" style="display: flex;">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body" style="min-height: 150px;">
+        <h5 class="card-title text-left mb-4">Billed By</h5>
+        <div class="row mt-2">
+          <div class="col-12 mb-1 d-flex">
+            <div class="col-3 text-right fw500">Name</div>
+            <div class="col-9 text-left">{{myname}}</div>
+          </div>
+          <div class="col-12 mb-1 d-flex">
+            <div class="col-3 text-right fw500">Address</div>
+            <div class="col-9 text-left">{{myaddress}}</div>
+          </div>
+          <div class="col-12 mb-1 d-flex">
+            <div class="col-3 text-right fw500">GSTIN</div>
+            <div class="col-9 text-left">{{mygstin}}</div>
+          </div>
+          <div class="col-12 mb-1 d-flex">
+            <div class="col-3 text-right fw500">PAN</div>
+            <div class="col-9 text-left">{{mypan}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body" style=" min-height: 150px;">
+        <h5 class="card-title text-left mb-4">Billed To</h5>
+        <div class="row mt-2" *ngIf="isClientSelected()">
+          <div class="col-12 mb-1 d-flex">
+            <div class="col-3 text-right fw500">Name</div>
+            <div class="col-9 text-left">{{cname}}</div>
+          </div>
+          <div class="col-12 mb-1 d-flex">
+            <div class="col-3 text-right fw500">Address</div>
+            <div class="col-9 text-left">{{caddress}}</div>
+          </div>
+          <div class="col-12 mb-1 d-flex">
+            <div class="col-3 text-right fw500">GSTIN</div>
+            <div class="col-9 text-left">{{cgstin}}</div>
+          </div>
+          <div class="col-12 mb-1 d-flex">
+            <div class="col-3 text-right fw500">PAN</div>
+            <div class="col-9 text-left">{{cpan}}</div>
+          </div>
+        </div>
+        <div class="row mt-2" *ngIf="!isClientSelected()">
+          <div class="col-12 text-center">
+            <p>Select a client!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-2">
+  <div class="col-12" *ngIf="!gstSelected">
+    <app-gst></app-gst>
+  </div>
+  <div class="col-12" *ngIf="gstSelected">
+    <app-ngst></app-ngst>
+  </div>
+</div>
+<div class="row text-center mt-4">
+  <div class="col-12 mt-4">
+    <button class="btn btn-primary">SAVE</button>
+    <button class="btn btn-primary mr-3">PRINT</button>
+  </div>
+</div>
