@@ -2,8 +2,9 @@
   <a href="https://github.com/skubotics/Invoice-App" target="_blank"><h2 align="center">INVOICING APP 🧾 </h2></a>
     <br />
     <br />
-    <b>GST Billing Application with Angular and PHP backend to support easy integration into any CPanel or Basic Web Hosting.</b>
+    <p align="center"><strong>GST Billing Application to support easy integration into any CPanel or Basic Web Hosting.</strong></p>
     <br />
+    <p align="center">🌺 Made with Angular and PHP 🌺</p>
     <br />
 </p>
 
