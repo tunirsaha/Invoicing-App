@@ -13,12 +13,15 @@
 [![Issues](https://img.shields.io/github/issues/skubotics/Invoice-App?color=db0000&label=Issues&style=for-the-badge)](https://github.com/skubotics/Invoice-App/issues)
 [![Contributors](https://img.shields.io/github/contributors/skubotics/Invoice-App?color=yellow&style=for-the-badge)](https://github.com/skubotics/Invoice-App/graphs/contributors)
 
-# For the contributors
-## Initialiazing Basic Database
-Instal WAMP or XAMPP Server. And open the PHPMyAdmin console and create a new database called invoice and the respective username and password for it.   
-It should be an empty database.  
-Then import the ``invoice.sql`` in the PHPMyAdmin interface.  
-PLEASE ADD LINUX PHP Installation here.  
-Once done, take that username, password and database name = invoice and host = localhost and put into ``backend/config/db.php``.
+## :open_file_folder: Initialiazing Basic Database
+- Install WAMP or XAMPP Server. 
+- Open the PHPMyAdmin console and create a new database called invoice and the respective username and password for it. (It should be an empty database)
+- Import the ``invoice.sql`` in the PHPMyAdmin interface.
+- PLEASE ADD LINUX PHP Installation here.  
+- Once done, take that username, password and database name = invoice and host = localhost and put into ``backend/config/db.php``.
 
-Then continue with the angular project in the ``web`` folder and run the backend server with ``php -S localhost:8888`` inside the ``backend`` folder.
+## :clapper: Running the application
+- Initialize the DB using above steps first
+- Install all required dependencies
+- Run the angular project in the ``web`` folder using ``ng serve`` command.
+- Run the backend server with ``php -S localhost:8888`` inside the ``backend`` folder.
